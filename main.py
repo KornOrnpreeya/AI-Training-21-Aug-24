@@ -19,7 +19,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 
 st.sidebar.title('Classifiers')
-classifier = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM','dt','nn'))
+classifier = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM','tree','neural_network'))
 if classifier =='KNN'
   knn = KNeighborsClassifier(n_neighbors=1)
   knn.fit(x_train, y_train)
@@ -33,14 +33,14 @@ if classifier =='SVM'
   acc = accuracy_score(y_test, y_pred)
   st.write(acc)
 
-if classifier =='dt'
+if classifier =='tree'
   dt = DecisionTreeClassifier()
   dt.fit(x_train, y_train)
   y_pred = dt.predict(x_test)
   acc = accuracy_score(y_test, y_pred)
   st.write(acc)
 
-if classifier =='nn'
+if classifier =='neural_network'
   nn = MLPClassifier()
   nn.fit(x_train, y_train)
   y_pred = nn.predict(x_test)
